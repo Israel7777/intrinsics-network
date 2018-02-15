@@ -157,8 +157,8 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
 
     losses = [refl_loss, shape_loss, lights_loss]
     print '<Val> Losses: ', losses
-    print save_path
-    torchvision.utils.save_image(images, os.path.join(save_path, 'shader.png'))
+    print save_path,type(images)
+    # torchvision.utils.save_image(images, os.path.join(save_path, 'shader.png'))
     return losses
 
 def visualize_decomposer_full(model, loader, save_path):
