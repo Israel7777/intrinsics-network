@@ -1,4 +1,6 @@
 import os, math, torch, torch.nn as nn, torchvision.utils, numpy as np, scipy.misc, pdb
+
+import numpy
 from torch.autograd import Variable
 from tqdm import tqdm
 import pipeline
@@ -157,7 +159,8 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
 
     losses = [refl_loss, shape_loss, lights_loss]
     print '<Val> Losses: ', losses
-    print save_path,type(images)
+    images = numpy.asarray(images)
+    print save_path,type(images),images.shape
     # torchvision.utils.save_image(images, os.path.join(save_path, 'shader.png'))
     return losses
 
