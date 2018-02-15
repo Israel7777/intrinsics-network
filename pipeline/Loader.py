@@ -106,6 +106,7 @@ class IntrinsicDataset(torch.utils.data.Dataset):
     def __read_image(self, path):
         print ('/dataset/output/val/'+path)
         img = numpy.asarray(cv2.imread(path))
+        print img.shape
         if img.shape[-1] == 4:
             img = img[:,:,:-1]
         img = img.transpose(2,0,1) / 255.
