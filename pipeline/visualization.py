@@ -140,9 +140,9 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
         images.extend(splits)
     
 
-    refl_loss /= float(ind+1)
-    shape_loss /= float(ind+1)
-    lights_loss /= float(ind+1)
+        refl_loss /= float(ind+1)
+        shape_loss /= float(ind+1)
+        lights_loss /= float(ind+1)
 
     # pdb.set_trace()
     # grid = torchvision.utils.make_grid(images, nrow=7).cpu().numpy().transpose(1,2,0)
