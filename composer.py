@@ -1,13 +1,9 @@
-#!/om/user/janner/anaconda2/envs/pytorch/bin/python
-
 import sys, os, argparse, torch, pdb
-sys.path.append('/om/user/janner/mit/urop/intrinsic/pytorch/')
-import models, pipeline, style
-
+import models, pipeline
 parser = argparse.ArgumentParser()
-parser.add_argument('--decomposer',         type=str,   default='saved/vector_depth_state_decomp_0.001lr_0.1lights/state.t7',
+parser.add_argument('--decomposer',         type=str,   default='saved/decomposer/state.t7',
         help='decomposer network state file')
-parser.add_argument('--shader',             type=str,   default='saved/vector_shader_0.01/model.t7',
+parser.add_argument('--shader',             type=str,   default='saved/shader/model.t7',
         help='shader network file')
 parser.add_argument('--data_path',          type=str,   default='../dataset/output/',
         help='base folder of datasets')
@@ -59,7 +55,7 @@ pipeline.initialize(args)
 decomposer = models.Decomposer().cuda()
 decomposer.load_state_dict( torch.load(args.decomposer) )
 ## shader : normals, lighting --> shading
-shader = torch.load(args.shader)
+shader = torch.load('saved/shader/model.t7')
 ## composer : image --> reflectance, normals, lighting, shading --> image
 model = models.Composer(decomposer, shader).cuda()
 

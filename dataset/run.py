@@ -1,4 +1,4 @@
-#!/om/user/janner/anaconda2/bin/python
+
 
 import os, argparse, subprocess
 
@@ -19,7 +19,7 @@ def render(script, low, high, repeat, category, output):
     else:
         repo_folder = args.include
 
-    command = ['/om/user/janner/blender-2.76b-linux-glibc211-x86_64/blender', '--background', '-noaudio', '--python', script, '--', '--include', repo_folder, \
+    command = ['./../../../../../usr/lib/blender/blender', '--background', '-noaudio', '--python', script, '--', '--include', repo_folder, \
         '--start', low, '--finish', high, '--repeat', repeat, '--category', category, '--output', output] #, \
 
     p = subprocess.call(command)
