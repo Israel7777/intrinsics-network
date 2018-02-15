@@ -20,7 +20,7 @@ def random(low, high):
 low = [args.lights_energy_low] + args.lights_pos_low
 high = [args.lights_energy_high] + args.lights_pos_high
 
-params = [random(low, high) for i in range(args.size)]
+params = [random(low, high) for i in range(int(args.size))]
 
 np.save(args.save_path, params)
 
