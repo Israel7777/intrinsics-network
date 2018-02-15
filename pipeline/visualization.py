@@ -20,7 +20,7 @@ def visualize_shader(model, loader, save_path, save_raw = False):
         inputs = []
         predictions = []
         targets = []
-        for ind, tensors in enumerate(loader):
+        for ind, tensors in enumerate(loader.dataset):
 
             inp = [ Variable( t.float().cuda(async=True) ) for t in tensors[:-1] ]
             targ = tensors[-1].float()
