@@ -130,6 +130,8 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
         shape_targ = pipeline.vector_to_image(shape_targ)
         shape_pred = pipeline.vector_to_image(shape_pred)
 
+        print ('here' , type(shape_pred))
+
         depth_targ = depth_targ.unsqueeze(1).repeat(1,3,1,1)
         depth_pred = depth_pred.repeat(1,3,1,1)
 
@@ -159,8 +161,6 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
 
     losses = [refl_loss, shape_loss, lights_loss]
     print '<Val> Losses: ', losses
-    images = numpy.asarray(images)
-    print save_path,type(images),images.shape
     # torchvision.utils.save_image(images, os.path.join(save_path, 'shader.png'))
     return losses
 
