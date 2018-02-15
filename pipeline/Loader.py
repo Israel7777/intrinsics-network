@@ -48,6 +48,7 @@ class IntrinsicDataset(torch.utils.data.Dataset):
                 ## other intrinsic images are represented as list of sorted filenames
                 else:
                     files = self.__find_sort_files(dataset, sel)[:size_per_dataset]
+                    files = os.listdir(dataset)[:size_per_dataset]
                     print (len(files),size_per_dataset)
                     assert len(files) == size_per_dataset        
                 self.set_specific.append(files)
