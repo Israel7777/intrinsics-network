@@ -104,7 +104,7 @@ class IntrinsicDataset(torch.utils.data.Dataset):
 
     ## read image as C x M x N array in range [0, 1]
     def __read_image(self, path):
-        img = scipy.misc.imread(path)
+        img = cv2.imread(path)
         print img.shape
         if img.shape[-1] == 4:
             img = img[:,:,:-1]
@@ -158,7 +158,7 @@ class IntrinsicDataset(torch.utils.data.Dataset):
 
 if __name__ == '__main__':
     import time
-    directory = '../dataset/output/'
+    directory = '../../dataset/output/'
     datasets = 'car_normalized,boat_normalized'
     selections = ['input', 'mask', 'albedo', 'normals', 'lights']
     # selection_fn = lambda fname: 'shading' in fname
