@@ -104,7 +104,7 @@ class IntrinsicDataset(torch.utils.data.Dataset):
 
     ## read image as C x M x N array in range [0, 1]
     def __read_image(self, path):
-        img = scipy.misc.imread('../dataset/output/val/'+path)
+        img = scipy.misc.imread(path)
         print img.shape
         if img.shape[-1] == 4:
             img = img[:,:,:-1]
