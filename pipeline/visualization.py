@@ -145,8 +145,8 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
         lights_loss /= float(ind+1)
 
     # pdb.set_trace()
-    # grid = torchvision.utils.make_grid(images, nrow=7).cpu().numpy().transpose(1,2,0)
-    # grid = np.clip(grid, 0, 1)
+    grid = torchvision.utils.make_grid(images, nrow=7).cpu().numpy().transpose(1,2,0)
+    grid = np.clip(grid, 0, 1)
 
     if epoch == 0:
         fullpath = os.path.join(save_path, 'original.png')
@@ -157,7 +157,7 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
 
     losses = [refl_loss, shape_loss, lights_loss]
     print '<Val> Losses: ', losses
-    # torchvision.utils.save_image(grid, os.path.join(save_path, 'shader.png'))
+    torchvision.utils.save_image(grid, os.path.join(save_path, 'shader.png'))
     return losses
 
 def visualize_decomposer_full(model, loader, save_path):
