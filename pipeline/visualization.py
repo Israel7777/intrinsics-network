@@ -115,7 +115,7 @@ def visualize_decomposer(model, loader, save_path, epoch, save_raw = False):
 
     images = []
 
-    for ind, tensors in enumerate(loader):
+    for ind, tensors in enumerate(loader.dataset):
         tensors = [Variable(t.float().cuda(async=True)) for t in tensors]
         inp, mask, refl_targ, depth_targ, shape_targ, lights_targ = tensors
 
