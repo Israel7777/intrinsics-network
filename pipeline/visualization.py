@@ -219,6 +219,7 @@ def visualize_decomposer_full(model, loader, save_path):
     # pdb.set_trace()
     grid = torchvision.utils.make_grid(images, nrow=7).cpu().numpy().transpose(1,2,0)
     grid = np.clip(grid, 0, 1)
+    print ("herer",save_path)
     scipy.misc.imsave( os.path.join(save_path, 'grid.png'), grid)
     # torchvision.utils.save_image(grid, os.path.join(save_path, 'shader.png'))
     return grid
